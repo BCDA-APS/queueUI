@@ -6,13 +6,13 @@ authors = [
     {name = "Ollivier Gassant", email = "Gassant@anl.gov"},
     {name = "Rafael Vescovi", email = "ravescovi@anl.gov"},
 ]
-requires-python = ">=3.9"
-
+requires-python = ">=3.9.*"
 readme = "README.md"
 license = {text = "MIT"}
 dependencies = [
-    "bluesky>=1.12.0"
-    ]
+    'pyqt5>5.13',
+    'bluesky-queueserver-api',
+]
 
 [project.urls]
 Homepage = "https://github.com/ravescovi/qsui"
@@ -23,8 +23,8 @@ Downloads = "https://github.com/ravescovi/qsui"
 ######################
 
 [tool.setuptools.packages.find]
-where = ["src"]
-include = ["src/qsui*"]
+where = ["."]
+include = ["qsui*"]
 exclude = ["*tests*"]
 
 #####################
@@ -65,7 +65,7 @@ line-length = 88
 indent-width = 4
 
 # Assume Python 3.12
-target-version = "py39"
+target-version = "py312"
 
 [tool.ruff.lint]
 # Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.
