@@ -9,9 +9,22 @@
   - [Acknowledgments](#acknowledgments)
   - [License](#license)
 
-## Usage
 
 ## Installation
+On a terminal:
+```bash
+conda create -n qsui python=3.9
+conda activate qsui
+
+git clone https://github.com/aps-bcda/qsui
+pip install qsui
+```
+## Usage
+On a terminal:
+```bash
+conda activate qsui
+qsui_run
+```
 
 ### Using Pre-commit
 

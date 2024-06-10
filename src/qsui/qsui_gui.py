@@ -5,7 +5,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow
 
 
-def main():
+def main_gui():
     """REWRITE"""
     app = QApplication(sys.argv)
     win = QMainWindow()
@@ -20,4 +20,6 @@ def main():
     sys.exit(app.exec_())
 
 
-main()
+if __name__ == "main":
+    """"""
+    main_gui()

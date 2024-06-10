@@ -6,13 +6,16 @@ authors = [
     {name = "Ollivier Gassant", email = "Gassant@anl.gov"},
     {name = "Rafael Vescovi", email = "ravescovi@anl.gov"},
 ]
-requires-python = ">=3.9.*"
+requires-python = ">=3.9"
 readme = "README.md"
 license = {text = "MIT"}
 dependencies = [
     'pyqt5>5.13',
     'bluesky-queueserver-api',
 ]
+
+[project.scripts]
+qsui-gui = "qsui.qsui_gui:main_gui"
 
 [project.urls]
 Homepage = "https://github.com/bcda-APS/qsui"
@@ -22,10 +25,8 @@ Downloads = "https://github.com/bcda-APS/qsui"
 # Build Info + Tools #
 ######################
 
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["qsui*"]
-exclude = ["*tests*"]
+[tool.setuptools]
+package-dir = {"qsui" = "src/qsui"}
 
 #####################
 # Development Tools #
