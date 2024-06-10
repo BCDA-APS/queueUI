@@ -24,9 +24,9 @@
 
 ## Contributing
 
-Please report **bugs**, **enhancement requests**, or **questions** through the [Issue Tracker](https://github.com/ravescovi/qsui).
+Please report **bugs**, **enhancement requests**, or **questions** through the [Issue Tracker](https://github.com/bcda-APS/qsui).
 
-If you are looking to contribute, please see [`CONTRIBUTING.md`](https://github.com/ravescovi/qsuo/blob/main/CONTRIBUTING.md).
+If you are looking to contribute, please see [`CONTRIBUTING.md`](https://github.com/bcda-APS/qsui/blob/main/CONTRIBUTING.md).
 
 
 ## Citing

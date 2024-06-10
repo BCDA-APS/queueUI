@@ -7,7 +7,7 @@ If you are interested in contributing to qsui, your contributions will fall into
 2. You want to fix a bug:
     - Please post an issue using the Bug template which provides a clear and concise description of what the bug was.
 
-Once you finish implementing a feature or bug-fix, please send a Pull Request to https://github.com/ravescovi/qsui.
+Once you finish implementing a feature or bug-fix, please send a Pull Request to https://github.com/bcda-APS/qsui.
 
 ## Developing qsui
 
@@ -16,7 +16,7 @@ To develop qsui on your machine, please follow these instructions:
 1. Clone a copy of qsui from source:
 
 ```
-git clone https://github.com/ravescovi/qsui.git
+git clone https://github.com/bcda-APS/qsui.git
 cd qsui
 ```
 
@@ -83,7 +83,7 @@ To view the docs run: `open qsui/docs/build/html/index.html`.
 
 To release a new version of qsui to PyPI:
 
-1. Merge the `develop` branch into the `main` branch with an updated version number in [`qsui.__init__`](https://github.com/ravescovi/qsui/blob/main/qsui/__init__.py).
+1. Merge the `develop` branch into the `main` branch with an updated version number in [`qsui.__init__`](https://github.com/bcda-APS/qsui/blob/main/src/qsui/__init__.py).
 2. Make a new release on GitHub with the tag and name equal to the version number.
 3. [Build and install](#developing-qsui) qsui from source.
 4. Run the following commands:

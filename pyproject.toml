@@ -15,8 +15,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ravescovi/qsui"
-Downloads = "https://github.com/ravescovi/qsui"
+Homepage = "https://github.com/bcda-APS/qsui"
+Downloads = "https://github.com/bcda-APS/qsui"
 
 ######################
 # Build Info + Tools #
