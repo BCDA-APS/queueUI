@@ -14,7 +14,7 @@ __version__ = (
 ROOT_DIR = pathlib.Path(__file__).parent
 UI_DIR = ROOT_DIR / "resources"
 
-APP_DESC = "Graphical interface to control and monitor the Bluesky Queue Server."
+APP_DESC = "Graphical interface to control the Bluesky Queue Server."
 APP_TITLE = __package_name__
 AUTHOR_LIST = [
     s.strip()
