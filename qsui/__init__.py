@@ -1,5 +1,5 @@
 """
-Define constants used throught the code.
+Define constants used throughout the code.
 """
 
 import pathlib
