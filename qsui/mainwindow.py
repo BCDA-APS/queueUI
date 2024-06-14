@@ -27,7 +27,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setWindowTitle(APP_TITLE)
 
         # self.actionOpen.triggered.connect(self.doOpen)
-        # self.actionAbout.triggered.connect(self.doAboutDialog)
+        self.actionAbout.triggered.connect(self.doAboutDialog)
         self.actionExit.triggered.connect(self.doClose)
 
         # settings.restoreWindowGeometry(self, "mainwindow_geometry")
@@ -47,14 +47,14 @@ class MainWindow(QtWidgets.QMainWindow):
         print(text)
         self.statusbar.showMessage(str(text), msecs=timeout)
 
-    # def doAboutDialog(self, *args, **kw):
-    #     """
-    #     Show the "About ..." dialog
-    #     """
-    #     from .aboutdialog import AboutDialog
+    def doAboutDialog(self, *args, **kw):
+        """
+        Show the "About ..." dialog
+        """
+        from .aboutdialog import AboutDialog
 
-    #     about = AboutDialog(self)
-    #     about.open()
+        about = AboutDialog(self)
+        about.open()
 
     def closeEvent(self, event):
         """
