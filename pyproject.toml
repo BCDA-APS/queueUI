@@ -1,5 +1,5 @@
 [project]
-name = "qsui"
+name = "queueUI"
 version = "0.1.0"
 description = "Default template for PDM package"
 authors = [
@@ -15,18 +15,18 @@ dependencies = [
 ]
 
 [project.scripts]
-qsui = "qsui.app:main"
+queueUI = "queueUI.app:main"
 
 [project.urls]
-Homepage = "https://github.com/bcda-APS/qsui"
-Downloads = "https://github.com/bcda-APS/qsui"
+Homepage = "https://github.com/bcda-APS/queueUI"
+Downloads = "https://github.com/bcda-APS/queueUI"
 
 ######################
 # Build Info + Tools #
 ######################
 
 [tool.setuptools]
-package-dir = {"qsui" = "qsui"}
+package-dir = {"queueUI" = "queueUI"}
 
 #####################
 # Development Tools #

@@ -1,1 +1,1 @@
-"""Pytest tests for QSUI"""
+"""Pytest tests for queueUI"""
