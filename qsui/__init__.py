@@ -31,4 +31,4 @@ COPYRIGHT_TEXT = "(c) 2023, UChicago Argonne, LLC, (see LICENSE file for details
 DOCS_URL = "https://github.com/BCDA-APS/qsui/blob/main/README.md"
 ISSUES_URL = "https://github.com/BCDA-APS/qsui/issues"
 LICENSE_FILE = "LICENSE"
-VERSION = "0.0.1"
+VERSION = __version__
