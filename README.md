@@ -13,18 +13,17 @@
 ## Installation
 On a terminal:
 ```bash
-conda create -n qsui python=3.9
-conda activate qsui
-
-git clone https://github.com/aps-bcda/qsui
+git clone git@github.com:BCDA-APS/qsui.git
 cd qsui
-pip install .
+conda env create --force -n qsui -f ./env.yml
+conda activate qsui
+pip install -e .
 ```
 ## Usage
 On a terminal:
 ```bash
 conda activate qsui
-qsui-gui
+qsui &
 ```
 
 ### Using Pre-commit
