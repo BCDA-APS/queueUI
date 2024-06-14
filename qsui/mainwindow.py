@@ -10,7 +10,7 @@ from PyQt5 import QtWidgets
 
 from . import APP_TITLE, utils
 
-# from .user_settings import settings
+from .user_settings import settings
 
 UI_FILE = utils.getUiFileName(__file__)
 
@@ -30,8 +30,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.actionAbout.triggered.connect(self.doAboutDialog)
         self.actionExit.triggered.connect(self.doClose)
 
-        # settings.restoreWindowGeometry(self, "mainwindow_geometry")
-        # print("Settings are saved in:", settings.fileName())
+        settings.restoreWindowGeometry(self, "mainwindow_geometry")
+        print("Settings are saved in:", settings.fileName())
 
     @property
     def status(self):
@@ -67,8 +67,8 @@ class MainWindow(QtWidgets.QMainWindow):
         """
         User chose exit (or quit), or closeEvent() was called.
         """
-        # self.setStatus("Application quitting ...")
-        # settings.saveWindowGeometry(self, "mainwindow_geometry")
+        self.setStatus("Application quitting ...")
+        settings.saveWindowGeometry(self, "mainwindow_geometry")
         self.close()
 
     # def doOpen(self, *args, **kw):
