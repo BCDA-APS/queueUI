@@ -17,7 +17,7 @@ git clone https://github.com/BCDA-APS/queueUI.git
 cd qsui
 conda env create --force -n qsui -f ./env.yml
 conda activate qsui
-pip install -e .
+pip install -e . --no-deps
 ```
 ## Usage
 On a terminal:
