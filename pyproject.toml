@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [project.scripts]
-qsui-gui = "qsui.qsui_gui:main_gui"
+qsui = "qsui.app:main"
 
 [project.urls]
 Homepage = "https://github.com/bcda-APS/qsui"
@@ -26,7 +26,7 @@ Downloads = "https://github.com/bcda-APS/qsui"
 ######################
 
 [tool.setuptools]
-package-dir = {"qsui" = "src/qsui"}
+package-dir = {"qsui" = "qsui"}
 
 #####################
 # Development Tools #
@@ -86,7 +86,7 @@ select = [
     # Warning
     "W",
     # pydocstyle
-    "D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107",
+    "D100", "D101", "D102", "D103", "D104", "D106",
     # ruff
     # "RUF"
 ]
