@@ -1,7 +1,7 @@
-# QSUI
+# queueUI
 
 ## Table of Contents
-- [QSUI](#QSUI)
+- [queueUI](#queueUI)
   - [Table of Contents](#table-of-contents)
   - [Usage](#usage)
   - [Installation](#installation)
@@ -14,16 +14,16 @@
 On a terminal:
 ```bash
 git clone https://github.com/BCDA-APS/queueUI.git
-cd qsui
-conda env create --force -n qsui -f ./env.yml
-conda activate qsui
+cd queueUI
+conda env create --force -n queueUI -f ./env.yml
+conda activate queueUI
 pip install -e . --no-deps
 ```
 ## Usage
 On a terminal:
 ```bash
-conda activate qsui
-qsui &
+conda activate queueUI
+queueUI &
 ```
 
 ### Using Pre-commit
@@ -37,9 +37,9 @@ qsui &
 
 ## Contributing
 
-Please report **bugs**, **enhancement requests**, or **questions** through the [Issue Tracker](https://github.com/bcda-APS/qsui).
+Please report **bugs**, **enhancement requests**, or **questions** through the [Issue Tracker](https://github.com/bcda-APS/queueUI).
 
-If you are looking to contribute, please see [`CONTRIBUTING.md`](https://github.com/bcda-APS/qsui/blob/main/CONTRIBUTING.md).
+If you are looking to contribute, please see [`CONTRIBUTING.md`](https://github.com/bcda-APS/queueUI/blob/main/CONTRIBUTING.md).
 
 
 ## Citing
@@ -49,4 +49,4 @@ If you are looking to contribute, please see [`CONTRIBUTING.md`](https://github.
 
 ## License
 
-QSUI is MIT licensed, as seen in the [LICENSE](./LICENSE) file.
+queueUI is MIT licensed, as seen in the [LICENSE](./LICENSE) file.
