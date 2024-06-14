@@ -33,14 +33,19 @@ class MainWindow(QtWidgets.QMainWindow):
         # settings.restoreWindowGeometry(self, "mainwindow_geometry")
         # print("Settings are saved in:", settings.fileName())
 
-    # @property
-    # def status(self):
-    #     return self.statusbar.currentMessage()
+    @property
+    def status(self):
+        """Returns the current message in the mainwindow status bar.
 
-    # def setStatus(self, text, timeout=0):
-    #     """Write new status to the main window and terminal output."""
-    #     print(text)
-    #     self.statusbar.showMessage(str(text), msecs=timeout)
+        Returns:
+            str: the current message in the mainwindow status bar.
+        """
+        return self.statusbar.currentMessage()
+
+    def setStatus(self, text, timeout=0):
+        """Write new status to the main window and terminal output."""
+        print(text)
+        self.statusbar.showMessage(str(text), msecs=timeout)
 
     # def doAboutDialog(self, *args, **kw):
     #     """
