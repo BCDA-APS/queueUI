@@ -9,7 +9,6 @@ Defines MainWindow class.
 from PyQt5 import QtWidgets
 
 from . import APP_TITLE, utils
-
 from .user_settings import settings
 
 UI_FILE = utils.getUiFileName(__file__)
