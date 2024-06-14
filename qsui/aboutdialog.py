@@ -1,19 +1,30 @@
-from PyQt5 import QtCore
-from PyQt5 import QtGui
-from PyQt5 import QtWidgets
+"""
+About dialog window
 
-from . import APP_DESC
-from . import APP_TITLE
-from . import AUTHOR_LIST
-from . import COPYRIGHT_TEXT
-from . import DOCS_URL
-from . import ISSUES_URL
-from . import __version__
-from . import utils
+.. autosummary::
+
+    ~AboutDialog
+"""
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+from . import (
+    APP_DESC,
+    APP_TITLE,
+    AUTHOR_LIST,
+    COPYRIGHT_TEXT,
+    DOCS_URL,
+    ISSUES_URL,
+    __version__,
+    utils,
+)
 
 
 class AboutDialog(QtWidgets.QDialog):
-    """Load a generic About... Dialog as a .ui file."""
+    """
+    Load a generic About... Dialog as a .ui file.
+
+    """
 
     # UI file name matches this module, different extension
     ui_file = utils.getUiFileName(__file__)
@@ -28,6 +39,7 @@ class AboutDialog(QtWidgets.QDialog):
         self.setup()
 
     def setup(self):
+        """_summary_"""
         import os
 
         pid = os.getpid()
@@ -85,7 +97,13 @@ class AboutDialog(QtWidgets.QDialog):
         license.open()  # modal: must close licensedialog BEFORE aboutdialog
 
     def clearStatus(self):
+        """_summary_"""
         self.setStatus("")
 
     def setStatus(self, text):
+        """_summary_
+
+        Args:
+            text (_type_): _description_
+        """
         self.parent.setStatus(text)
