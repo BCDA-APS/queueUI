@@ -6,6 +6,7 @@ Defines MainWindow class.
     ~MainWindow
 """
 
+from bluesky_queueserver_api.zmq import REManagerAPI
 from PyQt5 import QtWidgets
 
 from . import APP_TITLE, utils
@@ -31,6 +32,25 @@ class MainWindow(QtWidgets.QMainWindow):
 
         settings.restoreWindowGeometry(self, "mainwindow_geometry")
         print("Settings are saved in:", settings.fileName())
+
+        self.RM = REManagerAPI()
+        self.runEngineOpenButton_3.clicked.connect(self.openRunEngine)
+        self.runEngineCloseButton_3.clicked.connect(self.closeRunEngine)
+
+    # RE Function:
+    def openRunEngine(self):
+        self.RM.environment_open()
+        self.RM.wait_for_idle()
+
+        print(f"status={self.RM.status()}")
+
+    def closeRunEngine(self):
+        self.RM.environment_close()
+        self.RM.wait_for_idle()
+        print(f"status={self.RM.status()}")
+
+    def destroyRunEngine(self):
+        self.RM.environment_destroy()
 
     @property
     def status(self):
