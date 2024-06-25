@@ -39,18 +39,22 @@ class MainWindow(QtWidgets.QMainWindow):
 
     # RE Function:
     def openRunEngine(self):
-        """Opens the RunEngine."""
-        self.RM.environment_open()
-        self.RM.wait_for_idle()
-
-        print(f"status = {self.RM.status().get('worker_environment_exists')}")
+        """Checks the status of the RE. Then opens the RE."""
+        if not self.RM.status().get("worker_environment_exists"):
+            self.RM.environment_open()
+            self.RM.wait_for_idle()
+            print(f"status = {self.RM.status().get('worker_environment_exists')}")
+        else:
+            pass
 
     def closeRunEngine(self):
-        """Closes the RunEngine."""
-        self.RM.environment_close()
-        self.RM.wait_for_idle()
-        
-        print(f"status = {self.RM.status().get('worker_environment_exists')}")
+        """Checks the status of the RE. Then closes the RunEngine."""
+        if self.RM.status().get("worker_environment_exists"):
+            self.RM.environment_close()
+            self.RM.wait_for_idle()
+            print(f"status = {self.RM.status().get('worker_environment_exists')}")
+        else:
+            pass
 
     def destroyRunEngine(self):
         """Destroys the RunEngine."""
