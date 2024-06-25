@@ -34,22 +34,27 @@ class MainWindow(QtWidgets.QMainWindow):
         print("Settings are saved in:", settings.fileName())
 
         self.RM = REManagerAPI()
-        self.runEngineOpenButton_3.clicked.connect(self.openRunEngine)
-        self.runEngineCloseButton_3.clicked.connect(self.closeRunEngine)
+        self.REOpenButton.clicked.connect(self.openRunEngine)
+        self.RECloseButton.clicked.connect(self.closeRunEngine)
 
     # RE Function:
     def openRunEngine(self):
+        """Opens the RunEngine."""
         self.RM.environment_open()
         self.RM.wait_for_idle()
 
-        print(f"status={self.RM.status()}")
+        print(f"status = {self.RM.status().get('worker_environment_exists')}")
 
     def closeRunEngine(self):
+        """Closes the RunEngine."""
         self.RM.environment_close()
         self.RM.wait_for_idle()
-        print(f"status={self.RM.status()}")
+        
+        print(f"status = {self.RM.status().get('worker_environment_exists')}")
 
     def destroyRunEngine(self):
+        """Destroys the RunEngine."""
+        # TODO: Remove this function.
         self.RM.environment_destroy()
 
     @property

@@ -132,7 +132,7 @@
              <height>161</height>
             </rect>
            </property>
-           <widget class="QPushButton" name="runEngineOpenButton_3">
+           <widget class="QPushButton" name="REOpenButton">
             <property name="geometry">
              <rect>
               <x>10</x>
@@ -145,7 +145,7 @@
              <string>Open</string>
             </property>
            </widget>
-           <widget class="QPushButton" name="runEngineCloseButton_3">
+           <widget class="QPushButton" name="RECloseButton">
             <property name="geometry">
              <rect>
               <x>10</x>
@@ -158,7 +158,7 @@
              <string>Close</string>
             </property>
            </widget>
-           <widget class="QPushButton" name="runEngineDestroyButton_3">
+           <widget class="QPushButton" name="REDestroyButton">
             <property name="geometry">
              <rect>
               <x>10</x>
@@ -171,7 +171,7 @@
              <string>Destroy</string>
             </property>
            </widget>
-           <widget class="QLabel" name="runEngineControlLabel_3">
+           <widget class="QLabel" name="REControlLabel">
             <property name="geometry">
              <rect>
               <x>10</x>
