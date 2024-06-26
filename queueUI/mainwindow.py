@@ -41,18 +41,26 @@ class MainWindow(QtWidgets.QMainWindow):
     def openRunEngine(self):
         """Checks the status of the RE. Then opens the RE."""
         if not self.RM.status().get("worker_environment_exists"):
+            # BUG: Status bar in app window does not print the statement below
+            self.setStatus("RE Environment is opening.", timeout=0)
             self.RM.environment_open()
             self.RM.wait_for_idle()
-            print(f"status = {self.RM.status().get('worker_environment_exists')}")
+            self.setStatus("RE Environment is now open.", timeout=0)
+
+            # print(f"status = {self.RM.status().get('worker_environment_exists')}")
         else:
             pass
 
     def closeRunEngine(self):
         """Checks the status of the RE. Then closes the RunEngine."""
         if self.RM.status().get("worker_environment_exists"):
+            # BUG: Status bar in app window does not print the statement below
+            self.setStatus("RE Environment is closing.", timeout=0)
             self.RM.environment_close()
             self.RM.wait_for_idle()
-            print(f"status = {self.RM.status().get('worker_environment_exists')}")
+            self.setStatus("RE Environment is now closed.", timeout=0)
+
+            # print(f"status = {self.RM.status().get('worker_environment_exists')}")
         else:
             pass
 
