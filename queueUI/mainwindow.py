@@ -14,6 +14,18 @@ from .user_settings import settings
 
 UI_FILE = utils.getUiFileName(__file__)
 
+# Connect to the QServer
+# def queueserver_api():
+#     try:
+#         #Where is the TOML file located?
+#         config = load_config()["queueserver"]
+#     except KeyError:
+#         raise InvalidConfiguration("Could not load queueserver info from iconfig.toml file.")
+#     ctrl_addr = f"tcp://{config['control_host']}:{config['control_port']}"
+#     info_addr = f"tcp://{config['info_host']}:{config['info_port']}"
+#     api = REManagerAPI(zmq_control_addr=ctrl_addr, zmq_info_addr=info_addr)
+#     return api
+
 
 class MainWindow(QtWidgets.QMainWindow):
     """
@@ -46,6 +58,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.RM.environment_open()
             self.RM.wait_for_idle()
             self.REEnvironmentStatusLabel.setText("Open")
+            self.REOpenButton.setEnabled(False)
+            self.RECloseButton.setEnabled(True)
             self.setStatus("RE Environment is now open.", timeout=0)
 
             # print(f"status = {self.RM.status().get('worker_environment_exists')}")
@@ -59,6 +73,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.RM.environment_close()
             self.RM.wait_for_idle()
             self.REEnvironmentStatusLabel.setText("Closed")
+            self.RECloseButton.setEnabled(False)
+            self.REOpenButton.setEnabled(True)
             self.setStatus("RE Environment is now closed.", timeout=0)
 
             # print(f"status = {self.RM.status().get('worker_environment_exists')}")
