@@ -46,40 +46,67 @@ class MainWindow(QtWidgets.QMainWindow):
         print("Settings are saved in:", settings.fileName())
 
         self.RM = REManagerAPI()
-        self.REOpenButton.clicked.connect(self.openRunEngine)
-        self.RECloseButton.clicked.connect(self.closeRunEngine)
+        # self.REOpenButton.clicked.connect(self.openRunEngine)
+        # self.RECloseButton.clicked.connect(self.closeRunEngine)
+
+        self.REOpenButton.clicked.connect(self.run_engine_state_change)
+        self.RECloseButton.clicked.connect(self.run_engine_state_change)
+
 
     # RE Function:
-    def openRunEngine(self):
-        """Checks the status of the RE. Then opens the RE."""
-        if not self.RM.status().get("worker_environment_exists"):
-            # BUG: Status bar in app window does not print the statement below
-            self.setStatus("RE Environment is opening.", timeout=0)
-            self.RM.environment_open()
-            self.RM.wait_for_idle()
-            self.REEnvironmentStatusLabel.setText("Open")
-            self.REOpenButton.setEnabled(False)
-            self.RECloseButton.setEnabled(True)
-            self.setStatus("RE Environment is now open.", timeout=0)
+    # def openRunEngine(self):
+    #     """Checks the status of the RE. Then opens the RE."""
+    #     if not self.RM.status().get("worker_environment_exists"):
+    #         # BUG: Status bar in app window does not print the statement below
+    #         self.setStatus("RE Environment is opening.", timeout=0)
+    #         self.RM.environment_open()
+    #         self.RM.wait_for_idle()
+    #         self.REEnvironmentStatusLabel.setText("Open")
+    #         self.RECloseButton.setEnabled(True)
+    #         self.REOpenButton.setEnabled(False)
+    #         self.setStatus("RE Environment is now open.", timeout=0)
 
-            # print(f"status = {self.RM.status().get('worker_environment_exists')}")
-        else:
-            pass
+    #         # print(f"status = {self.RM.status().get('worker_environment_exists')}")
+    #     else:
+    #         pass
 
-    def closeRunEngine(self):
-        """Checks the status of the RE. Then closes the RunEngine."""
-        if self.RM.status().get("worker_environment_exists"):
-            self.setStatus("RE Environment is closing.", timeout=0)
+    # def closeRunEngine(self):
+    #     """Checks the status of the RE. Then closes the RunEngine."""
+    #     if self.RM.status().get("worker_environment_exists"):
+    #         self.setStatus("RE Environment is closing.", timeout=0)
+    #         self.RM.environment_close()
+    #         self.RM.wait_for_idle()
+    #         self.REEnvironmentStatusLabel.setText("Closed")
+    #         self.RECloseButton.setEnabled(False)
+    #         self.REOpenButton.setEnabled(True)
+    #         self.setStatus("RE Environment is now closed.", timeout=0)
+
+    #         # print(f"status = {self.RM.status().get('worker_environment_exists')}")
+    #     else:
+    #         pass
+
+    def run_engine_state(self, status, status_string):
+            self.setStatus(f"RE Environment is {status_string}.", timeout=0)
             self.RM.environment_close()
-            self.RM.wait_for_idle()
-            self.REEnvironmentStatusLabel.setText("Closed")
-            self.RECloseButton.setEnabled(False)
-            self.REOpenButton.setEnabled(True)
-            self.setStatus("RE Environment is now closed.", timeout=0)
+            self.RM.wait_for_idle() #This is same
+            self.REEnvironmentStatusLabel.setText(f"{status_string}"+"ed") #This is the same
+            if status is True:
+                self.RECloseButton.setEnabled(False)
+                self.REOpenButton.setEnabled(True)
+            else:
+                self.RECloseButton.setEnabled(True)
+                self.REOpenButton.setEnabled(False)
 
-            # print(f"status = {self.RM.status().get('worker_environment_exists')}")
+            self.setStatus(f"RE Environment is now {status_string}"+"ed.", timeout=0)
+
+    def run_engine_state_change(self):
+        if self.RM.status().get("worker_environment_exists"):
+            status_string  = "open"
+            self.run_engine_state(True, status_string)
         else:
-            pass
+            status_string = "closed"
+            self.run_engine_state(False, status_string)
+
 
     def destroyRunEngine(self):
         """Destroys the RunEngine."""
