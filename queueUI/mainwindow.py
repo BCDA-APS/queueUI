@@ -60,9 +60,19 @@ class MainWindow(QtWidgets.QMainWindow):
         self.REHaltButton.clicked.connect(self.RM.re_halt)
 
         # Controlling the Queue
-        self.queuePlayButton.clicked.connect(self.RM.queue_start)        
+        self.queuePlayButton.clicked.connect(self.RM.queue_start)
         self.queueStopButton.clicked.connect(self.RM.queue_stop)
         # self.autoPlayCheckBox.clicked.connect(self.toggled)
+
+        # Labels
+        self.REEnvironmentOutputLabel.setStyleSheet("color: green; ")
+        self.REEnvironmentOutputLabel.setText("Test")
+
+        # Combobox
+        plans = self.RM.plans_allowed()["plans_allowed"].keys()
+        self.comboBox.clear()
+        self.comboBox.addItems(plans)
+        self.comboBox.activated.connect(self.get_plans)
 
     # RE Function:
 
