@@ -51,6 +51,14 @@ class MainWindow(QtWidgets.QMainWindow):
         self.REOpenButton.clicked.connect(self.openRunEngine)
         self.RECloseButton.clicked.connect(self.closeRunEngine)
 
+        # Controlling the Run Engine
+        self.REPlayButton.clicked.connect(self.RM.re_runs)
+        self.REPauseButton.clicked.connect(self.RM.re_pause)
+        self.REResumeButton.clicked.connect(self.RM.re_resume)
+        self.REStopButton.clicked.connect(self.RM.re_stop)
+        self.REAbortButton.clicked.connect(self.RM.re_abort)
+        self.REHaltButton.clicked.connect(self.RM.re_halt)
+
     # RE Function:
 
     def openRunEngine(self):
