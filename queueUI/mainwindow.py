@@ -59,6 +59,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.REAbortButton.clicked.connect(self.RM.re_abort)
         self.REHaltButton.clicked.connect(self.RM.re_halt)
 
+        # Controlling the Queue
+        self.queuePlayButton.clicked.connect(self.RM.queue_start)        
+        self.queueStopButton.clicked.connect(self.RM.queue_stop)
+        # self.autoPlayCheckBox.clicked.connect(self.toggled)
+
     # RE Function:
 
     def openRunEngine(self):
